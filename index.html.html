@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B. Khonglah Construction - Invoice Panel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <!-- Sidebar Form Controls (Hidden on Print) -->
+        <aside id="form-container" class="no-print">
+            <header class="form-header">
+                <h2>BKC Invoice Generator</h2>
+                <p>Enter billing and work item details below</p>
+            </header>
+            
+            <form id="invoice-form" onsubmit="event.preventDefault();">
+                <fieldset class="form-section">
+                    <legend>Invoice Metadata</legend>
+                    <div class="form-group">
+                        <label for="input-invoice-no">Invoice Number</label>
+                        <input type="text" id="input-invoice-no" readonly class="readonly-input">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="input-date">Invoice Date</label>
+                        <input type="date" id="input-date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-bill-to">Bill To (Client Details)</label>
+                        <textarea id="input-bill-to" rows="4" placeholder="e.g., The Principal, St. Mary's College, Shillong" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-contractor-name">Contractor Name</label>
+                        <input type="text" id="input-contractor-name" value="Barbara Khonglah" required>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-section">
+                    <legend>Work / Material Items</legend>
+                    <div class="table-responsive">
+                        <table id="form-items-table">
+                            <thead>
+                                <tr>
+                                    <th>Description of Work</th>
+                                    <th width="75">Qty</th>
+                                    <th width="90">Rate (₹)</th>
+                                    <th width="45"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="form-items-tbody">
+                                <!-- Dynamic rows populated via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <button type="button" id="btn-add-row" class="btn btn-secondary">+ Add Item Row</button>
+                </fieldset>
+
+                <fieldset class="form-section">
+                    <legend>GST Configuration (%)</legend>
+                    <div class="gst-inputs-row">
+                        <div class="form-group">
+                            <label for="input-cgst">CGST Rate (%)</label>
+                            <input type="number" id="input-cgst" value="9" min="0" step="0.1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-sgst">SGST Rate (%)</label>
+                            <input type="number" id="input-sgst" value="9" min="0" step="0.1" required>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-actions">
+                    <button type="button" id="btn-generate" class="btn btn-primary">Update Preview</button>
+                    <button type="button" id="btn-print" class="btn btn-success">🖨️ Print Invoice (2 Copies)</button>
+                    <button type="button" id="btn-next-bill" class="btn btn-warning">Next Bill ⏭️</button>
+                </div>
+            </form>
+        </aside>
+
+        <!-- Live Preview / Print Area -->
+        <main id="preview-container">
+            <div id="print-area">
+                <!-- Twin printed templates (Office Copy & Customer Copy) generated dynamically -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Notification Element -->
+    <div id="notification-toast" class="toast hidden"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
