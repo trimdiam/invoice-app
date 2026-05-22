@@ -160,6 +160,39 @@ input:focus, textarea:focus, select:focus {
     color: var(--primary-color);
 }
 
+.invoice-no-wrapper {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.invoice-no-wrapper input {
+    flex: 1;
+}
+
+.btn-edit-no {
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 5px 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    transition: background-color 0.15s;
+}
+
+.btn-edit-no:hover {
+    background-color: var(--bg-light);
+}
+
+.manual-override-input {
+    border-color: #f59e0b !important;
+    background-color: #fffbeb !important;
+    font-weight: bold;
+    color: #92400e !important;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15) !important;
+}
+
 /* Dynamic Item Table in Sidebar */
 .table-responsive {
     overflow-x: auto;
@@ -325,9 +358,7 @@ input:focus, textarea:focus, select:focus {
 
 /* Copy Watermark / Badge styling */
 .copy-badge {
-    position: absolute;
-    top: 14mm;
-    right: 15mm;
+    display: inline-block;
     border: 1.5px solid var(--primary-color);
     color: var(--primary-color);
     background: var(--primary-light);
@@ -337,6 +368,7 @@ input:focus, textarea:focus, select:focus {
     text-transform: uppercase;
     letter-spacing: 0.08em;
     border-radius: 20px;
+    margin-bottom: 6px;
 }
 
 /* Printed Invoice Design Elements */
@@ -345,6 +377,19 @@ input:focus, textarea:focus, select:focus {
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 10px;
+}
+
+.company-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.company-logo {
+    height: 95px;
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
 }
 
 .company-name {
@@ -462,14 +507,14 @@ input:focus, textarea:focus, select:focus {
 }
 
 .invoice-items-table thead tr {
-    background-color: var(--primary-color);
+    background-color: #f0f4ff;
 }
 
 .invoice-items-table th {
     text-transform: uppercase;
     font-weight: 700;
     font-size: 0.7rem;
-    color: #ffffff;
+    color: var(--primary-color);
 }
 
 .empty-row td {
@@ -498,7 +543,7 @@ input:focus, textarea:focus, select:focus {
 .grand-total-row td {
     border-top: 2px solid var(--primary-color) !important;
     border-bottom: 2px solid var(--primary-color) !important;
-    background-color: var(--primary-light);
+    background-color: #ffffff;
     color: var(--primary-color);
     font-size: 0.85rem;
 }
@@ -508,7 +553,7 @@ input:focus, textarea:focus, select:focus {
     margin: 12px 0;
     padding: 8px 12px;
     border: 1px dashed var(--primary-color);
-    background-color: #f0f4ff;
+    background-color: #ffffff;
     border-radius: 4px;
 }
 
@@ -555,14 +600,14 @@ input:focus, textarea:focus, select:focus {
 /* Footer Terms and Signature Lines */
 .invoice-footer {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    flex-direction: column;
     margin-top: auto;
     padding-top: 16px;
 }
 
 .footer-terms {
-    width: 55%;
+    width: 100%;
+    margin-bottom: 16px;
 }
 
 .footer-terms h4 {
@@ -584,22 +629,27 @@ input:focus, textarea:focus, select:focus {
 }
 
 .footer-signatures {
-    width: 40%;
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    gap: 26px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 10px;
 }
 
-.signature-box {
-    text-align: right;
-}
+.signature-box { text-align: center; }
+
+.signature-box-left { text-align: left; }
+.signature-box-right { text-align: right; }
 
 .signature-line {
     border-bottom: 1px solid #000000;
     width: 150px;
-    margin-left: auto;
     margin-bottom: 4px;
 }
+
+.signature-box-left .signature-line { margin-left: 0; margin-right: auto; }
+.signature-box-right .signature-line { margin-left: auto; margin-right: 0; }
 
 .sig-company-title {
     font-size: 0.72rem;
@@ -610,6 +660,113 @@ input:focus, textarea:focus, select:focus {
 .signature-box p {
     font-size: 0.68rem;
     color: var(--text-main);
+}
+
+/* Utility */
+.hidden { display: none !important; }
+
+/* Tab Navigation */
+.tab-nav {
+    display: flex;
+    gap: 6px;
+    margin-top: 14px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 8px 10px;
+    border: 1.5px solid var(--border-color);
+    border-radius: 6px;
+    background: #f9fafb;
+    color: var(--text-light);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.tab-btn:hover {
+    background: var(--primary-light);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.tab-btn.tab-active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #ffffff;
+}
+
+/* Summary Sidebar Controls */
+.summary-sidebar-info {
+    background: #f9fafb;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 12px 14px;
+    margin-bottom: 14px;
+}
+
+.summary-meta-line {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 4px;
+}
+
+.summary-meta-line:last-child { margin-bottom: 0; }
+
+.btn-danger {
+    background-color: #ef4444;
+    color: #ffffff;
+}
+
+.btn-danger:hover { background-color: #dc2626; }
+
+/* Summary Register Table */
+.summary-fy-header td {
+    background-color: #f0f4ff;
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 0.75rem;
+    padding: 6px 8px !important;
+    border: 1px solid #c7d7f9 !important;
+    letter-spacing: 0.03em;
+}
+
+.summary-fy-total td {
+    background-color: #fafafa;
+    font-size: 0.75rem;
+    border-top: 1.5px solid var(--border-color) !important;
+    border-bottom: 1.5px solid var(--border-color) !important;
+}
+
+.summary-delete-btn {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.85rem;
+    line-height: 1;
+}
+
+.summary-delete-btn:hover { background-color: #dc2626; }
+
+.summary-empty {
+    text-align: center;
+    padding: 24px !important;
+    color: var(--text-light);
+    font-style: italic;
+    font-size: 0.8rem;
+}
+
+.summary-print-date {
+    font-size: 0.68rem;
+    color: var(--text-light);
+    margin-top: 5px;
 }
 
 /* Toast Notification Styling */
@@ -642,7 +799,8 @@ input:focus, textarea:focus, select:focus {
 @media print {
     .no-print,
     #form-container,
-    .toast {
+    .toast,
+    .summary-delete-btn {
         display: none !important;
     }
 
@@ -686,6 +844,10 @@ input:focus, textarea:focus, select:focus {
 
     .invoice-body {
         padding: 5mm 10mm 5mm 10mm !important;
+    }
+
+    .company-logo {
+        height: 85px !important;
     }
 
     .invoice-header {
@@ -752,33 +914,23 @@ input:focus, textarea:focus, select:focus {
     }
 
     .invoice-items-table thead tr {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-        background-color: var(--primary-color) !important;
+        background-color: #f0f4ff !important;
     }
 
     .invoice-items-table th {
-        color: #ffffff !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+        color: var(--primary-color) !important;
     }
 
     .grand-total-row td {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-        background-color: #dbeafe !important;
+        background-color: #ffffff !important;
     }
 
     .amount-words-section {
-        background-color: #f0f4ff !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+        background-color: #ffffff !important;
     }
 
     .gstin-badge {
-        background-color: #dbeafe !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+        background-color: #f0f4ff !important;
     }
 }
 

@@ -18,14 +18,24 @@
                     </div>
                     <button type="button" id="btn-clear-draft" class="btn-icon-danger" title="Clear saved draft">🗑️</button>
                 </div>
+
+                <!-- Tab Navigation -->
+                <div class="tab-nav">
+                    <button id="tab-invoice" class="tab-btn tab-active">Invoice</button>
+                    <button id="tab-summary" class="tab-btn">Summary Register</button>
+                </div>
             </header>
 
+            <!-- Invoice Form -->
             <form id="invoice-form" onsubmit="event.preventDefault();">
                 <fieldset class="form-section">
                     <legend>Invoice Metadata</legend>
                     <div class="form-group">
                         <label for="input-invoice-no">Invoice Number</label>
-                        <input type="text" id="input-invoice-no" readonly class="readonly-input">
+                        <div class="invoice-no-wrapper">
+                            <input type="text" id="input-invoice-no" readonly class="readonly-input">
+                            <button type="button" id="btn-edit-invoice-no" class="btn-edit-no" title="Manually override invoice number">✏️</button>
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -41,16 +51,6 @@
                     <div class="form-group">
                         <label for="input-contractor-name">Contractor Name</label>
                         <input type="text" id="input-contractor-name" value="Barbara Khonglah" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="input-payment-terms">Payment Terms</label>
-                        <select id="input-payment-terms">
-                            <option value="On Demand">On Demand</option>
-                            <option value="Within 7 Days">Within 7 Days</option>
-                            <option value="Within 15 Days">Within 15 Days</option>
-                            <option value="Within 30 Days">Within 30 Days</option>
-                        </select>
                     </div>
                 </fieldset>
 
@@ -99,12 +99,24 @@
                     <button type="button" id="btn-next-bill" class="btn btn-warning">Next Bill ⏭️</button>
                 </div>
             </form>
+
+            <!-- Summary Controls (shown when Summary tab is active) -->
+            <div id="summary-controls" class="hidden">
+                <div class="summary-sidebar-info">
+                    <p id="summary-count-label" class="summary-meta-line"></p>
+                    <p id="summary-total-label" class="summary-meta-line"></p>
+                </div>
+                <div class="form-actions">
+                    <button type="button" id="btn-print-summary" class="btn btn-success">🖨️ Print Summary</button>
+                    <button type="button" id="btn-clear-register" class="btn btn-danger">🗑️ Clear Entire Register</button>
+                </div>
+            </div>
         </aside>
 
         <!-- Live Preview / Print Area -->
         <main id="preview-container">
             <div id="print-area">
-                <!-- Twin printed templates (Office Copy & Customer Copy) generated dynamically -->
+                <!-- Invoice or Summary rendered dynamically -->
             </div>
         </main>
     </div>

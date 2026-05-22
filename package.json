@@ -1,0 +1,38 @@
+{
+  "name": "bkc-invoice",
+  "version": "1.0.0",
+  "description": "B. Khonglah Construction - Invoice Generator",
+  "main": "main.js",
+  "author": "B. Khonglah Construction",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win --x64"
+  },
+  "build": {
+    "appId": "com.bkc.invoice",
+    "productName": "BKC Invoice",
+    "directories": {
+      "output": "C:/Users/ANANDO POHTAM/AppData/Local/BKC-Build"
+    },
+    "win": {
+      "target": "portable",
+      "icon": "assets/logo.png",
+      "signingHashAlgorithms": null,
+      "sign": null
+    },
+    "portable": {
+      "artifactName": "BKC-Invoice.exe"
+    },
+    "files": [
+      "index.html",
+      "styles.css",
+      "app.js",
+      "assets/**",
+      "main.js"
+    ]
+  },
+  "devDependencies": {
+    "electron": "^35.0.0",
+    "electron-builder": "^25.0.0"
+  }
+}
