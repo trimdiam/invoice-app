@@ -430,7 +430,7 @@ function renderInvoiceLayout(copyLabel) {
                         <p class="company-subtitle">Contractor &amp; Engineers</p>
                         <p class="company-meta"><strong>Proprietor:</strong> Barbara Khonglah</p>
                         <p class="company-meta">Dum Dum, Nongthymmai, Shillong – 793014</p>
-                        <p class="company-meta"><strong>Ph:</strong> 908921192 &nbsp;|&nbsp; <strong>Email:</strong> spohchen@gmail.com</p>
+                        <p class="company-meta"><strong>Ph:</strong> 9089211192 &nbsp;|&nbsp; <strong>Email:</strong> spohchen@gmail.com</p>
                     </div>
                 </div>
                 <div class="invoice-title-box">
@@ -648,7 +648,7 @@ function renderSummaryLayout() {
                             <p class="company-subtitle">Contractor &amp; Engineers</p>
                             <p class="company-meta"><strong>Proprietor:</strong> Barbara Khonglah</p>
                             <p class="company-meta">Dum Dum, Nongthymmai, Shillong – 793014</p>
-                            <p class="company-meta"><strong>Ph:</strong> 908921192 &nbsp;|&nbsp; <strong>Email:</strong> spohchen@gmail.com</p>
+                            <p class="company-meta"><strong>Ph:</strong> 9089211192 &nbsp;|&nbsp; <strong>Email:</strong> spohchen@gmail.com</p>
                         </div>
                     </div>
                     <div class="invoice-title-box">
