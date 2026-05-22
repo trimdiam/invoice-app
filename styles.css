@@ -452,14 +452,13 @@ input:focus, textarea:focus, select:focus {
 .invoice-items-table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: auto;
 }
 
 .invoice-items-table th,
 .invoice-items-table td {
     border: 1px solid #000000;
-    padding: 7px 7px;
-    font-size: 0.78rem;
+    padding: 5px 6px;
+    font-size: 0.75rem;
 }
 
 .invoice-items-table thead tr {
@@ -474,7 +473,7 @@ input:focus, textarea:focus, select:focus {
 }
 
 .empty-row td {
-    height: 26px;
+    height: 20px;
 }
 
 .text-center { text-align: center; }
@@ -558,7 +557,8 @@ input:focus, textarea:focus, select:focus {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-top: 16px;
+    margin-top: auto;
+    padding-top: 16px;
 }
 
 .footer-terms {
@@ -634,6 +634,11 @@ input:focus, textarea:focus, select:focus {
 .toast.hidden { opacity: 0; transform: translateY(-20px); pointer-events: none; }
 
 /* Print Engine Configuration */
+@page {
+    size: A4 portrait;
+    margin: 10mm 12mm;
+}
+
 @media print {
     .no-print,
     #form-container,
@@ -669,7 +674,7 @@ input:focus, textarea:focus, select:focus {
 
     .invoice-page {
         width: 100% !important;
-        height: 282mm !important;
+        height: 277mm !important;
         margin: 0 !important;
         padding: 0 !important;
         border: none !important;
@@ -680,7 +685,60 @@ input:focus, textarea:focus, select:focus {
     }
 
     .invoice-body {
-        padding: 8mm 12mm 8mm 12mm !important;
+        padding: 5mm 10mm 5mm 10mm !important;
+    }
+
+    .invoice-header {
+        margin-bottom: 5px !important;
+    }
+
+    .company-name {
+        font-size: 1.15rem !important;
+    }
+
+    .company-subtitle,
+    .company-meta {
+        font-size: 0.65rem !important;
+        line-height: 1.4 !important;
+    }
+
+    .header-divider {
+        margin-bottom: 6px !important;
+    }
+
+    .invoice-meta-section {
+        margin-bottom: 8px !important;
+        gap: 10px !important;
+    }
+
+    .invoice-items-table th,
+    .invoice-items-table td {
+        padding: 4px 5px !important;
+        font-size: 0.68rem !important;
+    }
+
+    .empty-row td {
+        height: 18px !important;
+    }
+
+    .invoice-items-table tfoot td {
+        padding: 3px 5px !important;
+        font-size: 0.68rem !important;
+    }
+
+    .amount-words-section {
+        padding: 4px 8px !important;
+        font-size: 0.68rem !important;
+        margin-top: 6px !important;
+        margin-bottom: 6px !important;
+    }
+
+    .footer-terms h4 {
+        font-size: 0.6rem !important;
+    }
+
+    .footer-terms ol {
+        font-size: 0.58rem !important;
     }
 
     .invoice-page:last-child {

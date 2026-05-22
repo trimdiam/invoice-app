@@ -298,7 +298,7 @@ function renderInvoiceLayout(copyLabel) {
         `;
     });
 
-    const padMinRows = 5;
+    const padMinRows = 10;
     for (let i = state.items.length; i < padMinRows; i++) {
         rowsHTML += `<tr class="empty-row"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>`;
     }
@@ -396,17 +396,7 @@ function renderInvoiceLayout(copyLabel) {
                 <p><strong>Amount in Words:</strong> <span class="words-value">Rupees ${state.grandTotalWords}</span></p>
             </div>
 
-            <div class="bank-details-section">
-                <div class="meta-label">Bank Details</div>
-                <div class="bank-grid">
-                    <span>Account Name:</span><strong>B. Khonglah Construction</strong>
-                    <span>Bank &amp; Branch:</span><strong>SBI, Nongthymmai, Shillong</strong>
-                    <span>Account No:</span><strong>XXXXXXXXXXXXXXX</strong>
-                    <span>IFSC Code:</span><strong>SBIN0XXXXXX</strong>
-                </div>
-            </div>
-
-            <footer class="invoice-footer">
+<footer class="invoice-footer">
                 <div class="footer-terms">
                     <h4>Terms &amp; Conditions</h4>
                     <ol>
